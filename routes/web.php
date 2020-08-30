@@ -27,7 +27,10 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     // Driver
     Route::group(['prefix' => 'drivers', 'namespace' => 'Drivers', 'as' => 'drivers.'], function () {
-        Route::get('/', 'PagesController@index')->name('dashboard');
+        // Route::get('/', 'PagesController@index')->name('dashboard');
+        Route::get('/', function () {
+            return view('setup.awaiting-setup');
+        })->name('dashboard');
     });
 
     // Dispatches

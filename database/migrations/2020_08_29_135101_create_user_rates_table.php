@@ -16,7 +16,7 @@ class CreateUserRatesTable extends Migration
         Schema::create('user_rates', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->integer('months');
+            $table->integer('months')->default(0);
             $table->float('milage', 4, 3)->default(0.360);
             $table->float('rolloff', 5, 4)->default(0.0280);
             $table->float('packout', 5, 4)->default(0.0395);
