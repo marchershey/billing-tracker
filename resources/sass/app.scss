@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@responsive {
+    .h-screen {
+        height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+        height: calc(var(--vh, 1vh) * 100);
+    }
+}
+
+.h-screen-nav {
+    height: calc(100vh - 64px);
+    height: calc(calc(var(--vh, 1vh) * 100) - 64px);
+}
+
+.toggle-checkbox:checked + .toggle-label {
+    background-color: #4299e1;
+}
