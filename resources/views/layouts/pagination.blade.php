@@ -15,7 +15,7 @@
 
         <div class="w-1/3 flex items-center">
             <div class="w-full px-1 py-1 text-xs text-center font-gray-600 font-semibold uppercase">
-                Page {{$paginator->currentPage()}} of {{$paginator->total()}}
+                Page {{$paginator->currentPage()}} of {{$paginator->lastPage()}}
             </div>
         </div>
 
