@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Drivers\Profile;
 
 use App\Http\Controllers\Controller;
 use App\Jobs\SendEmailVerificationEmail;
+use App\UserRate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -36,6 +37,8 @@ class ProfileController extends Controller
         }
         $user->hire_date = $data['hire_date'];
         $user->save();
+
+        (new UserRate())->generateRates($user);
 
         return redirect()->back()->with('success', 'Your profile has been updated.');
     }
