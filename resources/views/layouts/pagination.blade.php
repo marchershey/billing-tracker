@@ -1,5 +1,6 @@
 @if ($paginator->hasPages())
 <nav role="navigation" aria-label="Pagination Navigation" class="py-2">
+    {{-- Mobile View --}}
     <div class="md:hidden flex">
         <div class="w-1/3 flex items-center">
             @if ($paginator->onFirstPage())
@@ -15,7 +16,7 @@
 
         <div class="w-1/3 flex items-center">
             <div class="w-full px-1 py-1 text-xs text-center font-gray-600 font-semibold uppercase">
-                Page {{$paginator->currentPage()}} of {{$paginator->total()}}
+                Page {{$paginator->currentPage()}} of {{$paginator->lastPage()}}
             </div>
         </div>
 
@@ -32,6 +33,7 @@
         </div>
     </div>
 
+    {{-- Desktop view --}}
     <div class="hidden md:flex">
         <div class="flex items-center w-1/2 text-xs text-gray-500 font-medium uppercase truncate">
             @if($paginator->firstItem() == $paginator->lastItem())
